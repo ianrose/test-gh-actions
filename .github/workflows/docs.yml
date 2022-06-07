@@ -19,7 +19,7 @@ jobs:
           node-version-file: ".nvmrc"
       - run: npm install
       - run: npm run build
-      - run: git add docs
+      - run: git add --all
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Generate docs
