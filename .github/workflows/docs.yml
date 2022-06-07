@@ -12,7 +12,6 @@ jobs:
         with:
           fetch-depth: 0
       - run: git checkout docs --
-      - run: git pull docs
       - run: git merge main
       - uses: actions/setup-node@v3
         with:
