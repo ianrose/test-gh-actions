@@ -9,10 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: everlytic/branch-merge@1.1.2
         with:
-          fetch-depth: 0
-      - run: git checkout docs --
-      - run: git merge main
+          source_ref: main
+          target_branch: "docs"
+          commit_message_template: "[Automated] Merged {source_ref} into target {target_branch}"
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
@@ -23,4 +24,3 @@ jobs:
         with:
           commit_message: Generate docs
           branch: docs
-          push_options: "--force"
