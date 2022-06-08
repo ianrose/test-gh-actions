@@ -14,9 +14,6 @@ jobs:
           source_ref: main
           target_branch: docs
           commit_message_template: "[Automated] Merged {source_ref} into target {target_branch}"
-      - uses: actions/checkout@v3
-        with:
-          ref: docs
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
@@ -27,5 +24,4 @@ jobs:
         with:
           commit_message: Generate docs
           branch: docs
-          skip_checkout: true
           push_options: "--force"
